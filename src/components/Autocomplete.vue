@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
       <input
         @keyup="getInputValue()"
-        @keyup.enter="setActiveOption(activeOption)"
+        @keyup.enter="setActiveOption(activeOptionIndex)"
         :value="inputValue"
         @keyup.delete="setList()"
         @focus="setList()"
@@ -14,7 +14,7 @@
         class="listItems"
         v-if="listIsVisible"
         v-for="(item, index) in filteredOptions"
-        v-bind:class="{active: index === activeOption}"
+        v-bind:class="{active: index === activeOptionIndex}"
         v-bind:key="item"
         @click="setActiveOption(index)"
         >{{ item }}</option>
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      activeOption: 0,
+      activeOptionIndex: 0,
       inputValue: '',
       listIsVisible: false,
     };
@@ -45,19 +45,19 @@ export default {
   },
   methods: {
     setActiveOption(index) {
-      this.activeOption = index || 0;
+      this.activeOptionIndex = index || 0;
       this.inputValue = this.filteredOptions[index];
       this.listIsVisible = false;
     },
     onUpArrow(){
-      this.activeOption - 1 < 0
-        ? this.activeOption = this.filteredOptions.length - 1
-        : this.activeOption -= 1
+      this.activeOptionIndex - 1 < 0
+        ? this.activeOptionIndex = this.filteredOptions.length - 1
+        : this.activeOptionIndex -= 1
     },
     onDownArrow() {
-      this.activeOption < this.filteredOptions.length - 1
-      ? this.activeOption += 1
-      : this.activeOption = 0
+      this.activeOptionIndex < this.filteredOptions.length - 1
+      ? this.activeOptionIndex += 1
+      : this.activeOptionIndex = 0
     },
     getInputValue() {
       this.listIsVisible = true;
@@ -65,7 +65,7 @@ export default {
     },
     setList() {
       this.listIsVisible = true;
-      this.activeOption = 0;
+      this.activeOptionIndex = 0;
     }
   }
 }
