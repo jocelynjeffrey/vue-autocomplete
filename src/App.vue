@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      list: ['One', 'Two', 'Three', 'Four', 'Five', 'Six']
+      list: ['Falcon', 'Fox', 'Ferret', 'Finch', 'Fish', 'Fishing Cat', 'Flamingo']
     }
   },
   created() {
@@ -30,7 +30,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #364759;
   margin-top: 60px;
 }
 
@@ -38,15 +38,9 @@ h3 {
   margin: 40px 0 0;
 }
 
-em {
-  font-weight: bold;
-}
-
 button, input {
   font-size: 16px;
-  display: block;
   height: 50px;
-  width: 200px;
 }
 
 button {
@@ -55,11 +49,12 @@ button {
 }
 
 input {
-  margin: 1rem auto;
   padding: 0 1rem;
+  width: 90%;
 }
 
-option {
+li {
+  list-style: none;
   padding: 0.8rem 1rem;
 }
 </style>
