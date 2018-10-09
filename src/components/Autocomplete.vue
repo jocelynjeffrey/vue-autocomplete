@@ -44,10 +44,6 @@ export default {
   },
   computed: {
     filteredOptions() {
-      // You can data-bind to computed properties in templates just like a normal property.
-      // Vue knows filteredOptions depends on allOptions, so it will update any
-      // bindings that depend on FO  when AO changes computed properties are cached
-      // based on their dependencies & will only re-evaluate when dependencies have changed
       const inputVal = this.inputValue.toLowerCase();
       return this.allOptions.filter(option => {
         return option.startsWith(inputVal);

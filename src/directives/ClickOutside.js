@@ -11,10 +11,3 @@ export const ClickOutside = {
     document.removeEventListener('click', el.clickOutsideEvent)
   },
 };
-
-// available hook functions:
-// bind
-// inserted
-// update
-// componentUpdated
-// unbind
